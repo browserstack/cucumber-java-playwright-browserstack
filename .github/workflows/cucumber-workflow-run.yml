@@ -11,9 +11,15 @@ on:
         description: 'The full commit id to build'
         required: true
 
+permissions:
+  contents: read
+
 jobs:
   comment-run:
     runs-on: ${{ matrix.os }}
+    permissions:
+      contents: read
+      checks: write
     strategy:
       fail-fast: false
       max-parallel: 3
