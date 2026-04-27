@@ -1,0 +1,28 @@
+# Maven
+target/
+dependency-reduced-pom.xml
+.mvn/
+
+# Reports
+reports/
+
+# BrowserStack
+browserstack.err
+browserstack-reports/
+log/bstack_sdk.log
+logs/
+
+# IDE / OS
+.idea/
+.vscode/
+*.iml
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Playwright
+test-results/
+playwright-report/
+*.png
+*.log
