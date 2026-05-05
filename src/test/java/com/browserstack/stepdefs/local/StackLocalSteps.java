@@ -29,7 +29,7 @@ public class StackLocalSteps {
     private Page page;
 
     @Before
-    public void setUp(Scenario scenario) {
+    public void setUp(Scenario scenario) throws Exception {
         playwright = Playwright.create();
         BrowserType browserType = playwright.chromium();
 
@@ -45,7 +45,7 @@ public class StackLocalSteps {
         caps.put("browserstack.local", "true");
         caps.put("sessionName", scenario.getName());
 
-        String encoded = URLEncoder.encode(new JSONObject(caps).toString(), StandardCharsets.UTF_8);
+        String encoded = URLEncoder.encode(new JSONObject(caps).toString(), "UTF-8");
         String wsEndpoint = "wss://cdp.browserstack.com/playwright?caps=" + encoded;
 
         browser = browserType.connect(wsEndpoint);
