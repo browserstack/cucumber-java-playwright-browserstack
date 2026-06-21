@@ -38,7 +38,7 @@ public class StackDemoSteps {
     private static final String PRODUCT_IN_CART = "//*[@id=\"__next\"]/div/div/div[2]/div[2]/div[2]/div/div[3]/p[1]";
 
     @Before
-    public void setUp(Scenario scenario) {
+    public void setUp(Scenario scenario) throws Exception {
         playwright = Playwright.create();
         BrowserType browserType = playwright.chromium();
 
@@ -53,7 +53,7 @@ public class StackDemoSteps {
         caps.put("browser", "chrome");
         caps.put("sessionName", scenario.getName());
 
-        String encoded = URLEncoder.encode(new JSONObject(caps).toString(), StandardCharsets.UTF_8);
+        String encoded = URLEncoder.encode(new JSONObject(caps).toString(), "UTF-8");
         String wsEndpoint = "wss://cdp.browserstack.com/playwright?caps=" + encoded;
 
         browser = browserType.connect(wsEndpoint);
